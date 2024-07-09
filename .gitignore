@@ -1,0 +1,45 @@
+# Ignore temporary files and directories
+*.swp
+*.swo
+*.bak
+*.tmp
+*~
+
+# Ignore system-specific files
+.DS_Store
+.Trash
+._*
+
+# Ignore log files
+*.log
+
+# Ignore directories created by GNU Stow
+stow-local-ignore/
+stow-global-ignore/
+
+# Ignore any backup files
+*.bak
+*.old
+*.orig
+
+# Ignore other common unwanted files
+.idea/
+.vscode/
+.cache/
+.history/
+node_modules/
+target/
+vendor/
+
+obs/*.mp4
+
+# Folders
+tmux/.config/tmux/plugins
+thefuck
+ranger
+raycast
+github-copilot
+nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/Session.vim
+composer
+
