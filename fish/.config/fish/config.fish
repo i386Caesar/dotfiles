@@ -5,10 +5,10 @@ if not set -q SSH_AUTH_SOCK
     set -Ux SSH_AGENT_PID $SSH_AGENT_PID
 end
 
-# ssh-add -q ~/.ssh/viper
+# ssh-add -q ~/.ssh/caesar
 
-eval (/usr/local/bin/brew shellenv)
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+eval (/opt/homebrew/bin/brew shellenv)
+# eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
 starship init fish | source # https://starship.rs/
 zoxide init fish | source # 'ajeetdsouza/zoxide'
@@ -26,12 +26,12 @@ fish_add_path ~/scripts
 fish_add_path ~/go/bin
 fish_add_path ~/.bun/bin
 fish_add_path ~/.deno/bin
-fish_add_path /usr/local/opt/openjdk/bin
-fish_add_path /usr/local/opt/ruby/bin
-fish_add_path /usr/local/opt/llvm/bin
+fish_add_path /opt/homebrew/opt/openjdk/bin
+fish_add_path /opt/homebrew/opt/ruby/bin
+fish_add_path /opt/homebrew/opt/llvm/bin
 
 # pnpm
-set -gx PNPM_HOME "/Users/viper/Library/pnpm"
+set -gx PNPM_HOME "/Users/caesar/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
@@ -47,20 +47,20 @@ set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx BAT_THEME "Catppuccin Mocha"
 set -gx BUN_INSTALL "$HOME/.bun"
-set -gx LDFLAGS "-L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
-set -gx LDFLAGS "-L/usr/local/opt/llvm/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/llvm/include"
-set -gx CPPFLAGS "-I/usr/local/opt/openjdk/include"
-set -gx LDFLAGS "-L/usr/local/opt/ruby/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/ruby/include"
-set -gx PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
+set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
+set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/openjdk/include"
+set -gx LDFLAGS "-L/opt/homebrew/opt/ruby/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/ruby/include"
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/ruby/lib/pkgconfig"
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/go/bin $PATH
 set -gx PATH $HOME/.luarocks/bin $PATH
 set -gx GOPATH (go env GOPATH)
 set -gx GOBIN $GOPATH/bin
 set -gx PATH $PATH $GOBIN
-set -gx PATH /Users/viper/.rbenv/shims $PATH
+set -gx PATH /Users/caesar/.rbenv/shims $PATH
 
 # FZF Config
 set -g FZF_DEFAULT_COMMAND "fd -H -E '.git'"
@@ -107,7 +107,8 @@ alias lt "eza -lAh --icons=always --git --tree --level=4 --long --ignore-glob='n
 
 # |======  Config App  ======|
 alias nrc "z ~/.config/nvim | vim "
-alias orc "vim /Users/viper/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/.obsidian.vimrc"
+alias trc "z ~/.config/tmux | vim "
+alias orc "vim /Users/caesar/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/.obsidian.vimrc"
 alias frc "vim ~/.config/fish/config.fish" # fish shell rc
 alias erc "vim ~/.config/espanso/"
 alias u "source ~/.config/fish/config.fish" # source fish shell
@@ -148,7 +149,7 @@ alias bp "bun run build && bun run preview"
 alias bb "bun run build"
 
 # |======  Obsidian ======|
-# alias sb "cd /Users/viper/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain && vim ."
+# alias sb "cd /Users/caesar/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain && vim ."
 
 # |======  HomeBrew ======|
 alias bi "brew install"
@@ -292,7 +293,7 @@ end
 function crd # create daily jouraal note
     set today_date (date +"%d-%m-%Y")
     set timestamp (date +"%H-%M-%S")
-    set base_path "/Users/viper/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/3-Resources/journals/daily"
+    set base_path "/Users/caesar/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/3-Resources/journals/daily"
 
     if test (count $argv) -gt 0
         set filename "$base_path/$today_date-$argv[1].md"
@@ -319,7 +320,7 @@ function crd # create daily jouraal note
 end
 
 function in
-    set base_path "/Users/viper/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/0-Inbox"
+    set base_path "/Users/caesar/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/0-Inbox"
 
     if test (count $argv) -eq 0
         set file_name ""
@@ -355,7 +356,7 @@ function in
 end
 
 function start-stream
-    set base_path "/Users/viper/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/0-Inbox"
+    set base_path "/Users/caesar/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/0-Inbox"
 
     if test (count $argv) -eq 0
         set file_name ""
@@ -391,7 +392,7 @@ function start-stream
 end
 
 function start-stream
-    set base_path "/Users/viper/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/3-Resources/youtube-stream"
+    set base_path "/Users/caesar/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/3-Resources/youtube-stream"
     set date (date +"%Y-%m-%d")
     set filename "$date-stream-checklist.md"
     set full_path "$base_path/$filename"
@@ -419,7 +420,7 @@ function start-stream
 end
 
 function yt-sum
-    set base_path "/Users/viper/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/3-Resources/video-summaries"
+    set base_path "/Users/caesar/Library/Mobile Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/3-Resources/video-summaries"
     set date (date +"%Y-%m-%d")
 
     # Prompt for video title and URL
@@ -487,18 +488,20 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /usr/local/Caskroom/miniforge/base/bin/conda
-    eval /usr/local/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
+    eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
 else
-    if test -f "/usr/local/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
-        . "/usr/local/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+    if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
     else
-        set -x PATH "/usr/local/Caskroom/miniforge/base/bin" $PATH
+        set -x PATH "/opt/homebrew/Caskroom/miniforge/base/bin" $PATH
     end
 end
 # <<< conda initialize <<<
 
+
 if status --is-interactive
     conda activate mako
 end
+
 
