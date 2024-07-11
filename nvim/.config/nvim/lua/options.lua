@@ -42,5 +42,5 @@ vim.o.conceallevel=2
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.g.python3_host_prog = '/usr/local/Caskroom/miniforge/base/envs/mako/bin/python'
+vim.g.python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/mako/bin/python'
 vim.g.ruby_host_prog = '/Users/viper/.rbenv/shims/neovim-ruby-host'
