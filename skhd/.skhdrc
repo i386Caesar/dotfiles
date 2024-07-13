@@ -15,6 +15,7 @@ shift - return : open -a "arc.app"
 ctrl - return : open -a "wezterm.app"
 cmd - return : open -a "chatgpt.app"
 cmd + shift - return : open -n -a "wezterm.app"
+cmd - tab : :
 
 # TODO: figure out window resizing
 
