@@ -92,7 +92,7 @@ alias h history
 alias pp "string split ':' $PATH | fzf"
 alias skv "skhd --stop-service && skhd -V"
 alias awi "yabai -m query --windows | fx"
-alias a "tmux attach"
+alias attach "tmux attach"
 
 alias .. "cd .."
 alias ... "cd ../.."
@@ -120,7 +120,8 @@ alias yrc "vim ~/.yabairc"
 alias krc "vim ~/dotfiles/gen-karabiner-config/rules.ts"
 alias zshrc "vim ~/.config/.zshrc"
 alias sc "z ~/ice/security"
-alias arc "z ~/ice/architecture"
+alias a "z ~/ice/architecture"
+alias m "z ~/ice/malware"
 
 # |======  Applications  ======|
 alias gl gorilla
@@ -486,6 +487,7 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
@@ -499,9 +501,7 @@ else
 end
 # <<< conda initialize <<<
 
-
 if status --is-interactive
     conda activate mako
 end
-
 
