@@ -7,7 +7,7 @@ end
 
 # ssh-add -q ~/.ssh/caesar
 
-eval (/opt/homebrew/bin/brew shellenv)
+eval (/usr/local/bin/brew shellenv)
 # eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
 starship init fish | source # https://starship.rs/
@@ -26,9 +26,9 @@ fish_add_path ~/scripts
 fish_add_path ~/go/bin
 fish_add_path ~/.bun/bin
 fish_add_path ~/.deno/bin
-fish_add_path /opt/homebrew/opt/openjdk/bin
-fish_add_path /opt/homebrew/opt/ruby/bin
-fish_add_path /opt/homebrew/opt/llvm/bin
+fish_add_path /usr/local/opt/openjdk/bin
+fish_add_path /usr/local/opt/ruby/bin
+fish_add_path /usr/local/opt/llvm/bin
 
 # pnpm
 set -gx PNPM_HOME "/Users/caesar/Library/pnpm"
@@ -47,13 +47,13 @@ set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx BAT_THEME "Catppuccin Mocha"
 set -gx BUN_INSTALL "$HOME/.bun"
-set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
-set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/openjdk/include"
-set -gx LDFLAGS "-L/opt/homebrew/opt/ruby/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/ruby/include"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/ruby/lib/pkgconfig"
+set -gx LDFLAGS "-L/usr/local/usr/llvm/lib/c++ -Wl,-rpath,/usr/local/usr/llvm/lib/c++"
+set -gx LDFLAGS "-L/usr/local/usr/llvm/lib"
+set -gx CPPFLAGS "-I/usr/local/usr/llvm/include"
+set -gx CPPFLAGS "-I/usr/local/usr/openjdk/include"
+set -gx LDFLAGS "-L/usr/local/usr/ruby/lib"
+set -gx CPPFLAGS "-I/usr/local/usr/ruby/include"
+set -gx PKG_CONFIG_PATH "/usr/local/usr/ruby/lib/pkgconfig"
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/go/bin $PATH
 set -gx PATH $HOME/.luarocks/bin $PATH
@@ -107,14 +107,14 @@ alias lt "eza -lAh --icons=always --git --tree --level=4 --long --ignore-glob='n
 
 # |======  Config App  ======|
 alias nrc "z ~/.config/nvim | vim "
-alias trc "z ~/.config/tmux | vim "
+alias trc "cd ~/.config/tmux | vim "
 alias orc "vim /Users/caesar/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/NeoDocs/SecondBrain/.obsidian.vimrc"
 alias frc "vim ~/.config/fish/config.fish" # fish shell rc
 alias erc "vim ~/.config/espanso/"
 alias u "source ~/.config/fish/config.fish" # source fish shell
 alias wrc "vim ~/.config/wezterm/wezterm.lua"
 alias skrc "vim ~/.skhdrc"
-alias trc "vim ~/.config/tmux/tmux.conf"
+# alias trc "vim ~/.config/tmux/tmux.conf"
 alias zelrc "vim ~/.config/zellij/config.kdl"
 alias yrc "vim ~/.yabairc"
 alias krc "vim ~/dotfiles/gen-karabiner-config/rules.ts"
@@ -490,13 +490,13 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
-    eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+if test -f /usr/local/Caskroom/miniforge/base/bin/conda
+    eval /usr/local/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
 else
-    if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
-        . "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+    if test -f "/usr/local/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+        . "/usr/local/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
     else
-        set -x PATH "/opt/homebrew/Caskroom/miniforge/base/bin" $PATH
+        set -x PATH "/usr/local/Caskroom/miniforge/base/bin" $PATH
     end
 end
 # <<< conda initialize <<<
