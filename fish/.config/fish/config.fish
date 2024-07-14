@@ -87,6 +87,7 @@ alias rm "rip"
 alias cp "cp -i"
 alias dow "z ~/Downloads"
 alias doc "z ~/Documents"
+alias p "open -a Preview.app"
 alias md "mkdir"
 alias h history
 alias pp "string split ':' $PATH | fzf"
