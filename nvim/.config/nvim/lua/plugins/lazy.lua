@@ -293,11 +293,11 @@ require('lazy').setup({
       -- end,
     },
   },
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^4', -- Recommended
-    lazy = false, -- This plugin is already lazy
-  },
+  -- {
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^4', -- Recommended
+  --   lazy = false, -- This plugin is already lazy
+  -- },
   {
     "rust-lang/rust.vim",
     ft = "rust",
