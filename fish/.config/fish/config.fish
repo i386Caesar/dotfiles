@@ -94,6 +94,7 @@ alias pp "string split ':' $PATH | fzf"
 alias skv "skhd --stop-service && skhd -V"
 alias awi "yabai -m query --windows | fx"
 alias attach "tmux attach"
+alias live-server="live-server --browser='/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox'"
 
 alias .. "cd .."
 alias ... "cd ../.."
