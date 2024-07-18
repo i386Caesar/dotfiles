@@ -10,6 +10,11 @@ vim.o.mouse = ''
 
 -- Enable break indent
 vim.o.breakindent = true
+-- vim.o.expandtab = true
+-- vim.o.shiftwidth = 4
+-- vim.o.softtabstop = 4
+-- vim.o.autoindent = true
+-- vim.o.smartindent = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -33,7 +38,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menuone,noselect'
 
 -- Concealer for Neorg
-vim.o.conceallevel=2
+vim.o.conceallevel = 2
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
