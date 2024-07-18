@@ -31,6 +31,29 @@ local on_attach = function(_, bufnr)
     end
   end, { desc = 'Format current buffer with LSP' })
 end
+-- Create a new autogroup named "FormatOnSave"
+vim.api.nvim_create_augroup("FormatOnSave", { clear = true })
+
+-- Define the auto command for HTML files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = "FormatOnSave",
+  pattern = "*.html",
+  command = "Format",
+})
+
+-- Define the auto command for CSS files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = "FormatOnSave",
+  pattern = "*.css",
+  command = "Format",
+})
+
+-- Define the auto command for JavaScript files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = "FormatOnSave",
+  pattern = "*.js",
+  command = "Format",
+})
 
 require('mason').setup()
 
@@ -42,6 +65,7 @@ local servers = {
   'lua_ls',
   'gopls',
   'html',
+  "cssls"
 }
 
 -- vim.g.rustaceanvim = {
@@ -96,7 +120,9 @@ require('lspconfig').lua_ls.setup {
     },
   },
 }
+
 require("luasnip.loaders.from_vscode").lazy_load()
+
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
@@ -174,4 +200,3 @@ ls.config.set_config({
 })
 
 require("luasnip.loaders.from_vscode").load()
-

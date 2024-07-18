@@ -102,24 +102,24 @@ require('lazy').setup({
     'rmagatti/goto-preview',
     config = function()
       require('goto-preview').setup {
-        width = 120; -- Width of the floating window
-        height = 15; -- Height of the floating window
-        border = {"↖", "─" ,"┐", "│", "┘", "─", "└", "│"}; -- Border characters of the floating window
-        default_mappings = true;
-        debug = false; -- Print debug information
-        opacity = nil; -- 0-100 opacity level of the floating window where 100 is fully transparent.
-        resizing_mappings = false; -- Binds arrow keys to resizing the floating window.
-        post_open_hook = nil; -- A function taking two arguments, a buffer and a window to be ran as a hook.
+        width = 120, -- Width of the floating window
+        height = 15, -- Height of the floating window
+        border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
+        default_mappings = true,
+        debug = false, -- Print debug information
+        opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
+        resizing_mappings = false, -- Binds arrow keys to resizing the floating window.
+        post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
         references = { -- Configure the telescope UI for slowing the references cycling window.
           telescope = require("telescope.themes").get_dropdown({ hide_preview = false })
-        };
+        },
         -- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
-        focus_on_open = true; -- Focus the floating window when opening it.
-        dismiss_on_move = false; -- Dismiss the floating window when moving the cursor.
-        force_close = true, -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
-        bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
-        stack_floating_preview_windows = true, -- Whether to nest floating windows
-        preview_window_title = { enable = true, position = "left" }, -- Whether 
+        focus_on_open = true,                                        -- Focus the floating window when opening it.
+        dismiss_on_move = false,                                     -- Dismiss the floating window when moving the cursor.
+        force_close = true,                                          -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
+        bufhidden = "wipe",                                          -- the bufhidden option to set on the floating window. See :h bufhidden
+        stack_floating_preview_windows = true,                       -- Whether to nest floating windows
+        preview_window_title = { enable = true, position = "left" }, -- Whether
       }
     end
   },
@@ -128,28 +128,28 @@ require('lazy').setup({
     dependencies = "nvim-tree/nvim-web-devicons",
     keys = {
       {
-	"<leader>xb",
-	"<cmd>Trouble diagnostics toggle<cr>",
-	desc = "Diagnostics (Trouble)",
+        "<leader>xb",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
       },
       {
-	"<leader>xx",
-	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-	desc = "Buffer Diagnostics (Trouble)",
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
       },
       {
-	"<leader>xl",
-	"<cmd>Trouble loclist toggle<cr>",
-	desc = "Location List (Trouble)",
+        "<leader>xl",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
       },
       {
-	"gR",
-	"<cmd> Trouble lsp_references<cr>",
+        "gR",
+        "<cmd> Trouble lsp_references<cr>",
       },
       {
-	"<leader>xq",
-	"<cmd>Trouble qflist toggle<cr>",
-	desc = "Quickfix List (Trouble)",
+        "<leader>xq",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
       },
     },
     config = function()
@@ -172,11 +172,11 @@ require('lazy').setup({
           },
         },
         presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
+          bottom_search = true,         -- use a classic bottom cmdline for search
+          command_palette = true,       -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = false, -- add a border to hover docs and signature help
+          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false,       -- add a border to hover docs and signature help
         },
       })
     end,
@@ -186,10 +186,10 @@ require('lazy').setup({
   },
   'ray-x/go.nvim',
   'ray-x/guihua.lua',
-  { "catppuccin/nvim", as = "catppuccin" },
+  { "catppuccin/nvim",      as = "catppuccin" },
   {
     "windwp/nvim-autopairs",
-      config = function() require("nvim-autopairs").setup {} end
+    config = function() require("nvim-autopairs").setup {} end
   },
 
   { -- LSP Configuration & Plugins
@@ -210,26 +210,26 @@ require('lazy').setup({
     branch = 'v1.x',
     requires = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
     },
   },
   {
     'mireq/luasnip-snippets',
-    dependencies = {'L3MON4D3/LuaSnip'},
+    dependencies = { 'L3MON4D3/LuaSnip' },
     init = function()
       -- Mandatory setup function
       require('luasnip_snippets.common.snip_utils').setup()
@@ -246,18 +246,21 @@ require('lazy').setup({
     init = function()
       local ls = require('luasnip')
       ls.setup({
-	-- Required to automatically include base snippets, like "c" snippets for "cpp"
-	load_ft_func = require('luasnip_snippets.common.snip_utils').load_ft_func,
-	ft_func = require('luasnip_snippets.common.snip_utils').ft_func,
-	-- To enable auto expansin
-	enable_autosnippets = true,
-	-- Uncomment to enable visual snippets triggered using <c-x>
-	-- store_selection_keys = '<c-x>',
+        -- Required to automatically include base snippets, like "c" snippets for "cpp"
+        load_ft_func = require('luasnip_snippets.common.snip_utils').load_ft_func,
+        ft_func = require('luasnip_snippets.common.snip_utils').ft_func,
+        -- To enable auto expansin
+        enable_autosnippets = true,
+        -- Uncomment to enable visual snippets triggered using <c-x>
+        -- store_selection_keys = '<c-x>',
       })
       -- LuaSnip key bindings
-      vim.keymap.set({"i", "s"}, "<Tab>", function() if ls.expand_or_jumpable() then ls.expand_or_jump() else vim.api.nvim_input('<C-V><Tab>') end end, {silent = true})
-      vim.keymap.set({"i", "s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
-      vim.keymap.set({"i", "s"}, "<C-E>", function() if ls.choice_active() then ls.change_choice(1) end end, {silent = true})
+      vim.keymap.set({ "i", "s" }, "<Tab>",
+        function() if ls.expand_or_jumpable() then ls.expand_or_jump() else vim.api.nvim_input('<C-V><Tab>') end end,
+        { silent = true })
+      vim.keymap.set({ "i", "s" }, "<S-Tab>", function() ls.jump(-1) end, { silent = true })
+      vim.keymap.set({ "i", "s" }, "<C-E>", function() if ls.choice_active() then ls.change_choice(1) end end,
+        { silent = true })
     end
   },
   { -- Highlight, edit, and navigate code
@@ -273,7 +276,7 @@ require('lazy').setup({
   "nvim-treesitter/playground",
   "eandrju/cellular-automaton.nvim",
 
-  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
   {
     "mfussenegger/nvim-dap",
     optional = true,
@@ -282,7 +285,7 @@ require('lazy').setup({
       -- stylua: ignore
       keys = {
         { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
-        { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
+        { "<leader>dPc", function() require('dap-python').test_class() end,  desc = "Debug Class",  ft = "python" },
       },
       -- config = function()
       --   if vim.fn.has("win32") == 1 then
@@ -301,7 +304,7 @@ require('lazy').setup({
   {
     "rust-lang/rust.vim",
     ft = "rust",
-    init = function ()
+    init = function()
       vim.g.rustfmt_autosave = 1
     end
   },
@@ -323,12 +326,12 @@ require('lazy').setup({
     event = "VeryLazy",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-  'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines 
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",     opts = {} },
+  'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
+  'tpope/vim-sleuth',      -- Detect tabstop and shiftwidth automatically
 
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope.nvim',       branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
   'nvim-telescope/telescope-symbols.nvim',
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
