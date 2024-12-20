@@ -60,13 +60,13 @@ yabai -m config                              \
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^Raycast Settings$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^1Password$" manage=off
+# yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Gestimer$" manage=off
 yabai -m rule --add app="^Walter's Currency Converter$" manage=off
 yabai -m rule --add app="^Rize$" title="^Blocker$" manage=off
 yabai -m rule --add app="^Mail$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
-yabai -m rule --add app="^UTM$" manage=off
+# yabai -m rule --add app="^UTM$" manage=off
 yabai -m rule --add app="^Finder$" manage=on
 yabai -m rule --add app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add app="^App Store$" manage=off

@@ -8,6 +8,8 @@ end
 # ssh-add -q ~/.ssh/caesar
 
 eval (/usr/local/bin/brew shellenv)
+# eval $(thefuck --alias)
+# eval $(thefuck --alias fuck)
 # eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
 starship init fish | source # https://starship.rs/
@@ -17,7 +19,7 @@ status --is-interactive; and rbenv init - fish | source
 
 # paths
 set fish_greeting ""
-set fish_key_bindings fish_vi_key_bindings
+set -g fish_key_bindings fish_vi_key_bindings
 
 # paths
 fish_add_path /bin
@@ -28,7 +30,10 @@ fish_add_path ~/.bun/bin
 fish_add_path ~/.deno/bin
 fish_add_path /usr/local/opt/openjdk/bin
 fish_add_path /usr/local/opt/ruby/bin
+# fish_add_path /usr/local/opt/openssl@1.1/bin
 fish_add_path /usr/local/opt/llvm/bin
+fish_add_path /usr/local/opt/bison/bin
+fish_add_path /opt/metasploit-framework/bin
 
 # pnpm
 set -gx PNPM_HOME "/Users/caesar/Library/pnpm"
@@ -39,6 +44,7 @@ end
 
 # global variables
 set -x LS_COLORS (vivid generate catppuccin-mocha)
+# set -x RUBY_CONFIGURE_OPTS "--with-openssl-dir=(brew --prefix openssl) --with-readline-dir=(brew --prefix readline) --with-libyaml-dir=(brew --prefix libyaml) --with-gmp-dir=(brew --prefix gmp)"
 set -gx TERM xterm-256color
 set -Ux EDITOR nvim
 set -gx VISUAL nvim
@@ -47,13 +53,17 @@ set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx BAT_THEME "Catppuccin Mocha"
 set -gx BUN_INSTALL "$HOME/.bun"
+set -gx LDFLAGS "-L/usr/local/opt/bison/lib"
 set -gx LDFLAGS "-L/usr/local/usr/llvm/lib/c++ -Wl,-rpath,/usr/local/usr/llvm/lib/c++"
 set -gx LDFLAGS "-L/usr/local/usr/llvm/lib"
 set -gx CPPFLAGS "-I/usr/local/usr/llvm/include"
 set -gx CPPFLAGS "-I/usr/local/usr/openjdk/include"
 set -gx LDFLAGS "-L/usr/local/usr/ruby/lib"
 set -gx CPPFLAGS "-I/usr/local/usr/ruby/include"
+# set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
+# set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
 set -gx PKG_CONFIG_PATH "/usr/local/usr/ruby/lib/pkgconfig"
+# set -gx PKG_CONFIG_PATH "/usr/local/opt/openssl@1.1/lib/pkgconfig"
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/go/bin $PATH
 set -gx PATH $HOME/.luarocks/bin $PATH
@@ -78,12 +88,15 @@ set -g theme_hostname always
 
 # |====== Aliases  ======|
 alias vim nvim
+alias v nvim
 alias c clear
 alias :q exit
+alias f fuck
 
 # |====== Utils  ======|
 alias sf "fzf | xargs nvim"
 alias rm "rip"
+alias code "code-insiders"
 alias cp "cp -i"
 alias dow "z ~/Downloads"
 alias doc "z ~/Documents"
@@ -119,8 +132,9 @@ alias skrc "vim ~/.skhdrc"
 # alias trc "vim ~/.config/tmux/tmux.conf"
 alias zelrc "vim ~/.config/zellij/config.kdl"
 alias yrc "vim ~/.yabairc"
+alias yrs "yabai --restart-service"
 alias krc "vim ~/dotfiles/gen-karabiner-config/rules.ts"
-alias zshrc "vim ~/.config/.zshrc"
+alias zshrc "vim ~/.zshrc"
 alias sc "z ~/ice/security"
 alias a "z ~/ice/architecture"
 alias m "z ~/ice/malware"
@@ -133,7 +147,6 @@ alias ff "fastfetch -l arch2"
 alias cat bat
 alias lg lazygit
 alias ct cointop
-alias top htop
 alias logk "tail -f ~/.local/share/karabiner/log/console_user_server.log"
 
 # |======  zellij  ======|
@@ -163,6 +176,10 @@ alias venv "uv venv && source .venv/bin/activate.fish"
 
 # |======  Functions ======|
 
+function open_nvim
+    nvim
+end
+bind \cO open_nvim
 
 function mcd
     set dir $argv[1]
@@ -210,7 +227,6 @@ function toggle_wezterm_font
     end
 end
 
-# Function for intercepting the -h option on most prograjms
 function h
     command $argv -h 2>&1 | bat --language=help --style=plain
 end
@@ -507,3 +523,5 @@ if status --is-interactive
     conda activate mako
 end
 
+
+thefuck --alias | source
